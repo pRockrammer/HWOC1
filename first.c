@@ -12,13 +12,13 @@ int SecondInToTen(char *number){
   for (int i = 0; *(number+i) != '\0'; i++){
     length++;
   }//находим максимальную разрядность числа
-  for(int i = 0; i < length; i++){
+  for(int i = length; i > 0; i--){
     int helper = -1;//переводим в int
     for(int j = 0; j < 10; j++){
       if (*(number + i) == per1[j])
         helper = j;
     }
-    rez += step(2 * helper, length-1);
+    rez += step(2 * helper, i-1);
   }
   return rez;
 }
