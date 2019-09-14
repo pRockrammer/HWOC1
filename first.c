@@ -19,9 +19,9 @@ int SecondInToTen(char *number){
   for(int i = length; i > 0; i--){
     int helper = -1;
     for(int j = 0; j < 10; j++){//переводим в int
-      if (*(number + i-1) == per1[j]){
+      if (*(number + (length - i) ) == per1[j]){
         helper = j;
-        //printf("Number = %c Helper = %i\n", *(number+i-1), helper);
+        //printf("Number = %c Helper = %i\n", *(number + (length - i)) , helper);
       }
       //printf("Number = %c\n", *(number+i-1));
     }
@@ -32,9 +32,21 @@ int SecondInToTen(char *number){
   return rez;
 }
 
-int main(){
-  char string[] = "111111\0";
-  int num = SecondInToTen(string);
-  printf("Hello there! string = %s int = %i\n", string, num);
+int main(int len, char* args[]){
+  int nums[len-1];
+  printf("Hello there!\n");
+  for (int i = 1; i < len; i++){
+    nums[i-1] = SecondInToTen(args[i]);
+  }
+  printf("Your input: \n");
+  for(int i = 1; i < len; i++){
+    printf("%s ", args[i]);
+  }
+  printf("\n");
+  printf("My output: \n");
+  for(int i = 0; i < len-1; i++){
+    printf("%i ", nums[i]);
+  }
+  printf("\n");
   return 0;
 }
