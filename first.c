@@ -25,7 +25,7 @@ int SecondInToTen(char *number){
       }
       //printf("Number = %c\n", *(number+i-1));
     }
-    rez += step(2 * helper, i-1);
+    rez += helper * step(2, i-1);
     //printf("Step = %i\n", step(2 * helper, i-1));
   }
 
